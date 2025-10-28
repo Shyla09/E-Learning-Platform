@@ -1,7 +1,7 @@
-#include "student.h"
-#include "course.h"
-#include "quiz.h"
-#include "utils.h"
+#include "../include/student.h"
+#include "../include/course.h"
+#include "../include/quiz.h"
+#include "../include/utils.h"
 #include <iostream>
 using namespace std;
 
@@ -60,16 +60,20 @@ void Student::submit_assignment(vector<Course> &courses) {
                 cout << "No assignments for this course.\n";
                 return;
             }
+
             cout << "Assignments for " << c.get_name() << ":\n";
             c.list_assignments();
+
             cout << "Enter assignment number to submit: ";
             int num;
             cin >> num;
             cin.ignore();
+
             if (num < 1 || num > c.get_assignment_count()) {
                 cout << "Invalid assignment number.\n";
                 return;
             }
+
             cout << "Submission successful!\n";
             return;
         }
@@ -96,7 +100,7 @@ void Student::watch_lecture(vector<Course> &courses) {
 void Student::show_dashboard() {
     int choice;
     do {
-        cout << "\n--- Student Dashboard (" << get_name() << ") ---\n";
+        cout << "\n--- Student Dashboard (" << this->get_name() << ") ---\n";
         cout << "1. View Courses\n";
         cout << "2. Register for Course\n";
         cout << "3. Take Quiz\n";

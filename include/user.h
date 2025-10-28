@@ -14,12 +14,12 @@ public:
     User(string n = "", string u = "", string p = "");
     virtual ~User() {}
 
-    string get_name() const { return name; }
-    string get_username() const { return username; }
-    string get_password() const { return password; }
+    string get_name() const;
+    string get_username() const;
+    string get_password() const;
 
-    // make this NON-pure so derived classes are not forced to override
-    virtual void dashboard() {}
+    // Non-pure virtual so derived classes can optionally override
+    virtual void dashboard();
 };
 
 #endif

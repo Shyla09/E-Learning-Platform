@@ -7,6 +7,8 @@
 #include <vector>
 #include <string>
 using namespace std;
+extern std::vector<Course> all_courses;
+
 
 extern vector<Course> all_courses;
 

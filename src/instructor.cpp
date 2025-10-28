@@ -16,7 +16,7 @@ void Instructor::create_course() {
     cout << "Enter lecture video link: ";
     getline(cin, link);
 
-    all_courses.push_back(Course(code, name, get_name(), link));
+    all_courses.push_back(Course(code, name, this->get_name(), link));
     cout << "Course created successfully!\n";
 }
 
@@ -89,7 +89,7 @@ void Instructor::add_quiz() {
 void Instructor::show_dashboard() {
     int choice;
     do {
-        cout << "\n--- Instructor Dashboard (" << get_name() << ") ---\n";
+        cout << "\n--- Instructor Dashboard (" << this->get_name() << ") ---\n";
         cout << "1. Create Course\n";
         cout << "2. Add Assignment\n";
         cout << "3. Add Quiz\n";

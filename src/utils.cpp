@@ -1,35 +1,45 @@
-#include "utils.h"
+#include "../include/utils.h"
+#include "../include/student.h"
+#include "../include/instructor.h"
+#include "../include/course.h"
+#include "../include/quiz.h"
 #include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
 
+// Global course list
 vector<Course> all_courses;
 
+// Initialize sample data
 void initialize_data() {
     all_courses.push_back(Course("CS101", "Programming Fundamentals", "Dr. Khan", "youtube.com/lectures/cs101"));
     all_courses.push_back(Course("CS102", "Data Structures", "Ms. Sharma", "youtube.com/lectures/cs102"));
     all_courses.push_back(Course("CS201", "Algorithms", "Dr. Iyer", "youtube.com/lectures/cs201"));
     all_courses.push_back(Course("CS301", "Operating Systems", "Mr. Nair", "youtube.com/lectures/cs301"));
 
+    // Add assignments
     all_courses[0].add_assignment("Implement a calculator");
     all_courses[0].add_assignment("Create a simple banking app");
-
     all_courses[1].add_assignment("Implement linked list");
     all_courses[1].add_assignment("Binary tree traversal");
 
+    // Add quizzes
     Quiz quiz1("Basics Quiz");
     quiz1.add_question(Question("What does CPU stand for?",
-                                {"Central Processing Unit", "Computer Personal Unit", "Central Power Unit", "Central Process Utility"}, 1));
+        {"Central Processing Unit", "Computer Personal Unit", "Central Power Unit", "Central Process Utility"}, 1));
     all_courses[0].add_quiz(quiz1);
 
     Quiz quiz2("DSA Quiz");
     quiz2.add_question(Question("Which data structure uses FIFO?",
-                                {"Stack", "Queue", "Tree", "Graph"}, 2));
+        {"Stack", "Queue", "Tree", "Graph"}, 2));
     all_courses[1].add_quiz(quiz2);
 }
 
+// Student signup
 void signup_student() {
     string name, username, password;
-    cout << "\nStudent Sign Up\n";
+    cout << "\n===== Student Sign Up =====\n";
     cout << "Enter name: ";
     getline(cin, name);
     cout << "Enter username: ";
@@ -42,9 +52,10 @@ void signup_student() {
     s.show_dashboard();
 }
 
+// Instructor signup
 void signup_instructor() {
     string name, username, password;
-    cout << "\nInstructor Sign Up\n";
+    cout << "\n===== Instructor Sign Up =====\n";
     cout << "Enter name: ";
     getline(cin, name);
     cout << "Enter username: ";
@@ -57,9 +68,11 @@ void signup_instructor() {
     i.show_dashboard();
 }
 
+// User login
 void login_user() {
     int type;
-    cout << "\nLogin as: 1.Student 2.Instructor\nEnter choice: ";
+    cout << "\n===== Login =====\n";
+    cout << "Login as: 1. Student  2. Instructor\nEnter choice: ";
     cin >> type;
     cin.ignore();
 
@@ -70,4 +83,14 @@ void login_user() {
     getline(cin, password);
 
     if (type == 1) {
-        Student s("Temp", username,
+        Student s("Temp", username, password);
+        cout << "Student login successful! Welcome " << s.get_username() << "!\n";
+        s.show_dashboard();
+    } else if (type == 2) {
+        Instructor i("Temp", username, password);
+        cout << "Instructor login successful! Welcome " << i.get_username() << "!\n";
+        i.show_dashboard();
+    } else {
+        cout << "Invalid login type!\n";
+    }
+}

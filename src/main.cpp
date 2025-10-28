@@ -6,7 +6,6 @@
 #include <vector>
 using namespace std;
 
-vector<Course> all_courses;
 
 // Provide a simple definition so initialize_courses is defined.
 // This ensures the program compiles; adjust implementation to actually
