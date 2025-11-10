@@ -33,6 +33,12 @@ Students can register, take quizzes, submit assignments, and track progress — 
 - **File Handling** (persistent storage of users, grades, and submissions)
 - **Encapsulation** (private data members and getters)
 - **Data Structures** (vectors for dynamic lists)
+- **Constructors**
+- **Function Overriding**
+- **Virtual Functions**
+- **Composition / Aggregation**
+- **Access Specifiers**
+- **Dynamic Memory & Pointers**
 
 ---
 
