@@ -1,4 +1,3 @@
-# E-Learning-Platform
 #  E-Learning Platform (C++ OOP Project)
 
 A console-based **E-Learning System** built in **C++**, demonstrating the use of **Object-Oriented Programming** concepts such as *inheritance, polymorphism, encapsulation, and file handling*.  
